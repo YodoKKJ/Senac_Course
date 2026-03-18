@@ -1,0 +1,62 @@
+
+estado {
+	id integer pk increments unique
+	nome varchar
+	sigla varchar
+}
+
+cidade {
+	id integer pk increments unique
+	nome varchar
+	estado_id integer *> estado.id
+}
+
+professor {
+	id integer pk increments unique
+	nome varchar
+	cpf varchar
+	email varchar
+	telefone varchar
+	titulacao varchar
+	cidade_id integer *> cidade.id
+}
+
+curso {
+	id integer pk increments unique
+	nome varchar
+	turno varchar
+	ano integer
+}
+
+disciplina {
+	id integer pk increments unique
+	nome varchar
+	carga_horaria integer
+	semestre integer
+	curso_id integer *> curso.id
+	professor_id integer *> professor.id
+}
+
+aluno {
+	id integer pk increments unique
+	nome varchar
+	cpf varchar
+	data_nasc date
+	endereco varchar
+	telefone varchar
+	email varchar
+	cidade_id integer *> cidade.id
+}
+
+matricula {
+	id integer pk increments unique
+	aluno_id integer *> aluno.id
+	curso_id integer *> curso.id
+	disciplina_id integer *> disciplina.id
+	ano integer
+	semestre integer
+	nota float
+	frequencia float
+	status varchar
+}
+

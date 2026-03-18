@@ -5,4 +5,3 @@ for (let i = 0; i <= tabuada; i++){
     console.log(numero + " X " + i + " = " + (numero*tabuada))
 }
 
-console.log(" PINROT DASfas<dAKHFJKLDHFVbhfgbç")

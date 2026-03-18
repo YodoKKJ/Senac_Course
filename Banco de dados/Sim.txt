@@ -1,0 +1,151 @@
+
+especialidade {
+	id integer pk increments unique
+	especialidade varchar *> medicos.especialdade_id
+}
+
+medicos {
+	id integer pk increments unique
+	nome varchar
+	CRM varchar
+	especialdade_id integer null
+}
+
+paciente {
+	id integer pk increments unique
+	nome varchar
+	data_nascimento date
+	sexo varchar
+	CPF varchar
+	telefone varchar null
+}
+
+agenda_consulta {
+	id integer pk increments unique
+	paciente_id integer *> paciente.id
+	medico_id integer *> medicos.id
+	data date
+	observacao varchar null
+	hora time
+}
+
+usuario {
+	id integer pk increments unique
+	nome varchar
+	endereco varchar
+	cep varchar
+}
+
+livro {
+	id integer pk increments unique
+	titulo varchar
+	biblioteca_id integer > biblioteca.id
+}
+
+biblioteca {
+	id integer pk increments unique
+	nome varchar
+	cidade_id varchar *> cidade.id
+}
+
+cidade {
+	id integer pk increments unique
+	cidade varchar
+	estado_id integer *> estado.id
+}
+
+estado {
+	id integer pk increments unique
+	estado varchar
+}
+
+emprestimo {
+	id integer pk increments unique
+	livro_id integer >* livro.id
+	usuario_id integer *> usuario.id
+	data date
+}
+
+reserva {
+	id integer pk increments unique
+	livro_id integer >* livro.id
+	usuario_id integer *> usuario.id
+	data date
+}
+
+fornecedor {
+	id integer pk increments unique
+	nome varchar
+	cidade integer
+}
+
+peca {
+	id integer pk increments unique
+	nome varchar
+	cor varchar
+	peso float
+}
+
+embarque {
+	fornecedor_id integer pk *> fornecedor.id
+	pecas_id integer pk *>* peca.id
+	qunatidade integer increments unique
+}
+
+clientes {
+	id integer pk increments unique
+	nome varchar
+	sobrenome varchar
+	data_nascimento date
+	numero_documento integer
+	escolariedade varchar
+	endereco varchar
+	email varchar
+	telefone varchar
+	referencia_id integer *>* referencia.id
+	cidade_id integer *> cidades.id
+}
+
+referencia {
+	id integer pk increments unique
+	nome varchar
+	sobrenome varchar
+	data_nascimento varchar
+	email varchar
+	telefone varchar
+	local_trabalho varchar
+	endereco varchar
+}
+
+cidades {
+	id integer pk increments unique
+	nome varchar
+	estados_id integer *> estados.id
+}
+
+estados {
+	id integer pk increments unique
+	estado varchar
+}
+
+veiculos {
+	id integer pk increments unique
+	placa varchar
+	modelo varchar
+	cor varchar
+	responsavel_id integer > responsavel.id
+	responsavel_hist_id integer *>* responsavel.id
+	ano date
+	categoria_id integer *> categoria.id
+}
+
+responsavel {
+	id integer pk increments unique
+	nome varchar
+}
+
+categoria {
+	id integer pk increments unique
+	nome varchar
+}
+

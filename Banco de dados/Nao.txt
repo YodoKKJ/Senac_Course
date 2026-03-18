@@ -1,0 +1,66 @@
+
+estado {
+	id integer pk increments unique
+	nome varchar
+	sigla varchar
+}
+
+cidade {
+	id integer pk increments unique
+	nome varchar
+	estado_id integer *> estado.id
+}
+
+departamento {
+	id integer pk increments unique
+	numero_identificacao integer unique
+	nome varchar
+}
+
+departamento_cidade {
+	id integer pk increments unique
+	departamento_id integer *> departamento.id
+	cidade_id integer *> cidade.id
+}
+
+empregado {
+	id integer pk increments unique
+	nome varchar
+	endereco varchar
+	sexo varchar
+	data_nasc date
+	salario float
+	departamento_id integer *> departamento.id
+}
+
+gerencia {
+	id integer pk increments unique
+	departamento_id integer *> departamento.id
+	gerente_id integer *> empregado.id
+	data_inicio date
+}
+
+projeto {
+	id integer pk increments unique
+	numero_identificacao integer unique
+	nome varchar
+	cidade_id integer *> cidade.id
+	departamento_id integer *> departamento.id
+}
+
+trabalha_em {
+	id integer pk increments unique
+	empregado_id integer *> empregado.id
+	projeto_id integer *> projeto.id
+	horas_semanais float
+}
+
+dependente {
+	id integer pk increments unique
+	empregado_id integer *> empregado.id
+	nome varchar
+	sexo varchar
+	data_nasc date
+	grau_parentesco varchar
+}
+
