@@ -8,7 +8,7 @@ for (let i = 10; i > -1 ; i-- ){
 console.log("====================")
 ///////////////////////
 
-let tabuada 
+let tabuada = 10
 
 for (let j = 0 ; j < 11; j++){
 
@@ -39,3 +39,13 @@ do {
   console.log(contar);
   contar--; }
 while (contar >= 1);
+
+//////////////////////////
+console.log("====================")
+///////////////////////
+
+let numPar
+
+for (numPar = 12; numPar > -1 ; numPar = numPar - 2){
+    console.log(numPar)
+}
