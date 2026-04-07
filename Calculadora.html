@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AAAAAAAA</title>
+</head>
+<body>
+
+  <input id="num1" type="number">
+  <input id="num2" type="number"><br><br>
+
+  <button onclick="calcular('+')"> +</button>
+  <button onclick="calcular('-')"> -</button>
+  <button onclick="calcular('*')"> *</button>
+  <button onclick="calcular('/')"> /</button>
+     
+  <p id="resposta"> Resultado ainda nao calculado</p>
+
+</body>
+  <script>
+    function calcular(op) {
+      const a = parseFloat(document.getElementById("num1").value)
+      const b = parseFloat(document.getElementById("num2").value)
+
+      let resultado
+      if (op == "+") {
+        resultado = a + b
+        console.log(op)
+      }
+      else if (op == "-"){
+      resultado = a - b
+      console.log(op)
+      }
+      else if (op == "*") {
+      resultado = a * b
+      console.log(op)
+      }
+      else if (op == "/") {
+      resultado = b == 0 ? "Divisão por zero" : a / b
+      console.log(op)
+      }
+
+      document.getElementById("resposta").textContent = "Resultado: " + resultado
+    }
+  </script>
+</html>
