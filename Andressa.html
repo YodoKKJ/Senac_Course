@@ -1,0 +1,42 @@
+<html>
+<head>
+ 
+<title>Atividade</title>
+    <script>
+ 
+        function adicionar() {
+ 
+           // Add item na lista
+        const tarefa = document.getElementById("tarefa").value;
+
+        const lista = document.createElement("li");
+        lista.textContent = tarefa;
+        document.getElementById("listaTarefa").appendChild(lista);
+
+        // Botao de excluir a Lista
+        const botao = document.createElement("button");
+        botao.textContent = "Remover";
+        botao.onclick = function() {
+            lista.remove();
+        }
+        lista.appendChild(botao);
+        document.getElementById("Listar").appendChild(lista);
+
+
+        }
+           
+ 
+    </script>
+</head>
+ 
+<body>
+ 
+ <input id="tarefa" type="text">
+ 
+<button onclick="adicionar()">adicionar</button>
+ 
+ <ul id="listaTarefa">fim</ul>
+ 
+</body>
+ 
+</html>

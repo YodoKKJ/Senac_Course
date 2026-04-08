@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
 </head>
+
 <body>
-
-   <input id="inputTarefa" type="text" placeholder="Add a tarefa qurido">
-
-   <button onclick="add()">Adicionar</button>
-
-   <button onclick="Listar"></button>
-
-   <ul id="Listar"></ul>
+    <input id="inputTarefa" type="text" placeholder="Add a tarefa qurido">
+    <button onclick="add()">Adicionar</button>
+    <ul id="Listar"></ul>
 
 </body>
 <script>
 
-      function add() {
-      const tarefa = document.getElementById("inputTarefa").value;
-    
-      const li = document.createElement("li");
-      li.textContent = tarefa;
+    function add() {
 
-     document.getElementById("Listar").appendChild(li);
-      
-      }
+        // Add item na lista
+        const tarefa = document.getElementById("inputTarefa").value;
+
+        const lista = document.createElement("li");
+        lista.textContent = tarefa;
+        document.getElementById("Listar").appendChild(lista);
+
+        // Botao de excluir a Lista
+        const botao = document.createElement("button");
+        botao.textContent = "Remover";
+        botao.onclick = function() {
+            lista.remove();
+        }
+        lista.appendChild(botao);
+
+
+        // CheckBox da Lista para feito/nao feito
+
+        const check = document.createElement("input")
+        check.type="checkbox"
+        lista.appendChild(check)
+
+
+
+       
+    }
 </script>
+
 </html>

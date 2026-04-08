@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de clique</title>
+</head>
+
+<body>
+    <button type="button" id="mais" onclick="incremento()">CLIQUE AQUI</button>
+    <button id="reset" onclick="resetarCliques()"> RESETAR </button>
+    <button id="diminuir" onclick="decremento()"> DIMINUIR </button>
+    <p id = "total"> Nada captado ainda</p>
+
+    <script>
+
+        let numCliques = 0;
+        
+        const mensagem = document.getElementById("total")
+
+        function incremento() {
+            
+            numCliques++;
+            mensagem.innerHTML = "Numero de Cliques = " + numCliques
+        }
+
+        function resetarCliques(){
+         
+            numCliques = 0  
+            mensagem.innerHTML = "Cliques resetados! Numero atual de cliques: " + numCliques 
+        
+        }
+
+        function decremento(){
+            if (numCliques > 0){
+            
+                numCliques--;
+                mensagem.innerHTML = "Numero de Cliques = " + numCliques
+            }else{
+                mensagem.innerHTML = "Numero de Cliques não pode ser menor que 0. Numero atual de cliques: " + numCliques
+            }
+            
+
+        }
+    </script>
+</body>
+
+</html>

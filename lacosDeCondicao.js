@@ -16,7 +16,7 @@ switch (true) {
         break;
 
     default:
-        console.log("Idade Invalida bro, Mas aparece la bb")
+        console.log("Idade Invalida bro, Mas aparece la")
         break;
 }
 
@@ -81,7 +81,7 @@ if (opcao === 1) {
 
 let mensagem = "oi" 
 
-if (mensagem === "oi" || mensagem === "olá") {
+if (mensagem === "oi" || mensagem === "ola") {
     console.log("Olá! Como posso te ajudar?")
 
 } else if (mensagem === "tudo bem?") {

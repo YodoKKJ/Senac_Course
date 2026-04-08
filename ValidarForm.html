@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Valida FORM</title>
 </head>
 <body>
      <form id="meuForm">
     <input id="name" type="text" placeholder="Nome">
     <input id="e-mail" type="email" placeholder="Email">
-    <button onclick="validar()">Enviar</button>
+    <button type="button" onclick="validar()">Enviar</button>
+    <div id="paia"></div>
 
   </form>
 
@@ -18,11 +19,23 @@
     function validar(){
         const name = document.getElementById("name").value;
         const email = document.getElementById("e-mail").value;
+        const paia = document.getElementById("paia");
 
-        
+        // valida os 2 ao mesmo tempo 
+        if (name.trim() === "" || email.trim() === "") {
+          paia.innerHTML = "Preenche os campos meu nobre -500 aura"
+          return;
+        }
 
+        // Valida se tem email
+        if (!email.includes("@")){
+          paia.innerHTML = "POh esse email n é email valido nao kkkkk -200 aura"
+          return;
+        }
+
+        alert("+100 de aura ");
+      
     }
-
   </script>
 </body>
 </html>
