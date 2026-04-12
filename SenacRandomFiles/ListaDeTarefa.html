@@ -21,16 +21,22 @@
         const tarefa = document.getElementById("inputTarefa").value;
 
         const lista = document.createElement("li");
+        
         lista.textContent = tarefa;
         document.getElementById("Listar").appendChild(lista);
+
+
 
         // Botao de excluir a Lista
         const botao = document.createElement("button");
         botao.textContent = "Remover";
+
         botao.onclick = function() {
             lista.remove();
         }
+        
         lista.appendChild(botao);
+
 
 
         // CheckBox da Lista para feito/nao feito
