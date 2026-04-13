@@ -6,13 +6,22 @@
     <title>Atividade3</title>
 </head>
 <body>
-    <input type="text" id="tarefas">
-    <button id="Lista" onclick="listar()">adicionar tarefa</button>
+    <input type="text" id="tarefas" placeholder="TAREFAS"></input>
+    <button id="botao" onclick="listar()">adicionar tarefa</button>
+    <ul id="lista"></ul>
 </body>
 <script>
+
+    const tarefas = document.getElementById('tarefas')
+    const botao = document.getElementById('botao')
+    const lista = document.getElementById('lista')
+
     function listar(){
-        const tarefa = document.getElementById('tarefas')
-        
+
+        const li = document.createElement('li')
+        li.textContent = tarefas.value
+        lista.append(li)
+
     }
 </script>
 </html>

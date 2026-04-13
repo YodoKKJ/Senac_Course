@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> clubinho</title>
+</head>
+
+<body>
+    <h2>menu</h2>
+    <h3>Adicionar produto</h3>
+    <ul id="lista"></ul>
+    <p id="componentes"></p>
+    <p id="mensagemFinal"></p>
+    <input type="text" id="nomeInput" placeholder="Nome do produto">
+    <input type="text" id="precoInput" placeholder="Preco">
+    <input type="text" id="componentesInput" placeholder="componentes">
+    <button onclick="adicionarProduto()">Adicionar</button>
+
+    <script>
+        let produtos = [
+            {
+                nome: "energetico",
+                preco: "R$ 15",
+                componentes: ["insonia", "infarto",]
+            }
+        ];
+        let lista = document.getElementById("lista");
+        let detalhes = document.getElementById("componentes");
+        let mensagemFinal = document.getElementById("mensagemFinal");
+
+        function renderizar() {
+            lista.innerHTML = "";
+
+            produtos.forEach((produto) => {
+                let item = document.createElement("li");
+
+                item.innerHTML = produto.nome;
+                item.onclick = () => {
+                    detalhes.innerText =
+                        "Preco: " + produto.preco +
+                        " | Ingredientes: " + produto.componentes.join(", ");
+                    mensagemFinal.innerText = " EU SOU FODA, ME DEVE UM PASTEL!";
+                };
+                lista.appendChild(item);
+            });
+        }
+
+        function adicionarProduto() {
+            let nome = document.getElementById("nomeInput").value;
+            let preco = document.getElementById("precoInput").value;
+            let componentes = document.getElementById("componentesInput").value;
+            let lista = document.getElementById("lista");
+
+            produtos.push({
+                nome: nome,
+                preco: preco,
+                componentes: componentes.split(",")
+            });
+
+            renderizar();
+        }
+    </script>
+</body>
