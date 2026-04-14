@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valida FORM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validar Form</title>
+   
 </head>
 <body>
-     <form id="meuForm">
-    <input id="name" type="text" placeholder="Nome">
-    <input id="e-mail" type="email" placeholder="Email">
-    <button type="button" onclick="validar()">Enviar</button>
-    <div id="paia"></div>
-
-  </form>
-
-  <script>
-
-    function validar(){
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("e-mail").value;
-        const paia = document.getElementById("paia");
-
-        // valida os 2 ao mesmo tempo 
-        if (name.trim() === "" || email.trim() === "") {
-          paia.innerHTML = "Preenche os campos meu nobre -500 aura"
-          return;
-        }
-
-        // Valida se tem email
-        if (!email.includes("@")){
-          paia.innerHTML = "POh esse email n é email valido nao kkkkk -200 aura"
-          return;
-        }
-
-        alert("+100 de aura ");
-      
-    }
-  </script>
+<input type="text" id="email" placeholder="E-mail">
+<input type="password" id="senha" placeholder="Senha">
+<button id="enviar" onclick="enviar()"><strong>Enviar </strong></button>
+<div id="mensagem"></div>
 </body>
+<script>
+  const email = document.getElementById('email')
+  const senha = document.getElementById('senha')
+  const mensagem = document.getElementById('mensagem')
+
+  let loginMail = "alex@hotmail.com"
+  let loginSenha = "y92567"
+
+function enviar(){
+
+  let emailValidado = email.value.replaceAll(' ', '')
+
+
+  // validacao EMAIL
+  if (emailValidado.trim() == "" || !emailValidado.includes("@")) {
+    mensagem.innerHTML = "Email invalido"
+    return;
+  }
+
+  // Validacao senha
+  if (senha.value.length < 6) {
+    mensagem.innerHTML = "Senha muito fraca tente com no minimo 6 caracteres!"
+    return;
+  }
+
+  // valida login
+  if (emailValidado.trim() !== loginMail || senha.value.trim() !== loginSenha) {
+    mensagem.innerHTML = "<strong>Email ou Senha invalido tente novamente</strong>"
+    return;
+  }
+
+   if (emailValidado.trim() == loginMail || senha.value.trim() == loginSenha) {
+    mensagem.innerHTML = "<strong>Login Efetuado com Sucesso parabéns</strong>"
+    return;
+  }
+}
+</script>
+
 </html>
