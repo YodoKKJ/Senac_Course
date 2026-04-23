@@ -1,89 +1,26 @@
-========================================
-        PLANO DE TESTE — CALCULADORA HTML
-========================================
-Aluno: Bruno Beduschi
-Data: 22/04/2026
-Disciplina: UC3 / Testes e Manutencao de Sistemas de Informacao
-========================================
+PLANO DE TESTE — CALCULADORA HTML
+Aluno: Bruno Beduschi | Data: 22/04/2026 | Disciplina: UC3
 
+Objetivo
+Validar se a calculadora funciona corretamente antes de liberar ao usuário.
+Método
+Teste manual Black Box — execução direta no navegador, comparando resultado obtido com o esperado.
+Escopo
+Incluído: soma, subtração, multiplicação, divisão e divisão por zero.
+Excluído: precisão decimal extrema (ex: 0.1 + 0.2 = 0.3000000004)
+Tipos de Teste
+Funcional, Valor Limite e Exceção (divisão por zero)
+Procedimento
+Abrir index.html no Brave → inserir valores → clicar na operação → comparar resultado com o esperado.
+Ambiente
+PC Senac  Navegador: Brave  Rede: sc.senac.br  Sem banco de dados.
+Equip
+Desenvolvedor: Bruno Beduschi Testadores: Bruno Beduschi e Igor
+Riscos
+Divisão por zero — tratado com condição if num2 == 0.
+Ferramentas
+Brave, DevTools (F12), VS Code.
+Resultados
+Apenas o bug dos decimais que vem do próprio JS
 
-1->
-    Validar se a calculadora está funcinando perfeitamente, para poder liberar para o usuario
-
-2 ->
-Testei de Forma manual usando o Black Box apenas com contas e resultados esperados, anotando o as respostas esperadas e o resultado
-
-3-> 
-INCLUÍDOS:
-  - Operação de soma
-  - Operação de subtração
-  - Operação de divisão
-  - Operação de multiplicação
-  - Tratamento de divisão por zero
-
-EXCLUÍDOS:
-  - Operações com números decimais de alta precisão (0.1 + 0.2 = 0.300000000000000000004)
-
-4->
- Testes Funcionais: verificação se cada botão executa a operação correta e exibe o resultado esperado na tela
- Testes de Valor Limite: uso de zero, números negativos e números decimais para cobrir bordas do comportamento esperado
-Teste de Exceção: verificação do comportamento da aplicação ao tentar dividir por zero, garantindo que uma mensagem amigável seja exibida em vez de um erro técnico.
-
-
-5->
-Testes realizados de forma manual
-Cada caso foi executado diretamente no navegador Google Chrome:
-  1. Abrir o arquivo index.html no navegador
-  2. Inserir os valores nos campos Numero 1 e Numero 2
-  3. Clicar no botão da operação desejada
-  4. Observar o resultado exibido na tela
-  5. Comparar com o valor esperado e registrar o resultado
-
-
-6 ->
-    Computador: PC do Senac
-    Software: Brave
-    Rede: sc.senac.br
-    Banco De Dados = Não tem
-
-7->
-    Quem Programou: Bruno Bedushi   
-    Quem testou: Bruno Beduschi e Igor 
-
-8-> 
-    Riscos Possiveis:
-    Divisão por 0 que é retorna erro. Tratado com uma condição (if num2 == 0)
-
-9 ->
-    - Google Chrome: execução e visualização da aplicação
-    DevTools (F12): inspeção do console para verificar erros em tempo real
-    VS Code: edicao e organizaccao do codigo-fonte
-
-10 ->
-    Total de casos de teste:     12
-    Casos aprovados         12
-    Casos reprovados         0
-    Taxa de sucesso:             100%
-    Cobertura de funcionalidades: 100% (4 de 4 operações testadas)
-    Defeitos encontrados:         0
-    Bugs: 0
-
-    SOMA:
-    5 + 3   Esperado: 8    Resultado: 8      
-    -2 + 2  Esperado: 0    Resultado: 0      
-    0 + 0   Esperado: 0    Resultado: 0      
-
-    SUBTRAÇÃO:
-    10 - 4   Esperado: 6    Resultado: 6      
-    3 - 7    Esperado: -4   Resultado: -4     
-    0 - 0    Esperado: 0     Resultado: 0      
-
-    DIVISÃO:
-    10 ÷ 2  Esperado: 5       Resultado: 5      
-    7 ÷ 2   esperado: 3.5     Resultado: 3.5   
-    5 ÷ 0   esperado: msg erro Resultado: msg erro 
-
-    MULTIPLICAÇÃO:
-    4 × 3    Esperado: 12   Resultado: 12     
-    -2 × 5   Esperado: -10  Resultado: -10    
-    0 × 99   Esperado: 0    Resultado: 0      
+Sem erros, sem bugs. Calculadora aprovada para uso.
