@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <input id="num1" type="number" placeholder="Numero 1">
+    <input id="num2" type="number" placeholder="Numero 2">
+    <button id="somar" onclick="somar()">+</button>
+    <button id="somar" onclick="diminuir()">-</button>
+    <button id="somar" onclick="dividir()">÷</button>
+    <button id="somar" onclick="multiplicar()">×</button>
+    <Div id="texto"></Div>
+</body>
+<script>
+    
+function getNumeros(){
+    const num1 = Number(document.getElementById('num1').value)
+    const num2 = Number(document.getElementById('num2').value)
+    return [num1, num2]
+}
+
+function somar(){
+    const [num1, num2] = getNumeros()
+    texto.innerText = `Resultado: ${num1 + num2}`
+}
+
+function diminuir(){
+    const [num1, num2] = getNumeros()
+    texto.innerText = `Resultado: ${num1 - num2}`
+}
+
+function dividir(){
+    const [num1, num2] = getNumeros()
+    if (num2 == 0){
+        texto.innerText = "Divisão por 0 é impossível hehe"
+    } else {
+        texto.innerText = `Resultado: ${num1 / num2}`
+    }
+}
+
+function multiplicar(){
+    const [num1, num2] = getNumeros()
+    texto.innerText = `Resultado: ${num1 * num2}`
+}
+    
+</script>
+</html>
