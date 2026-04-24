@@ -1,0 +1,29 @@
+-- atividade 1
+
+create table PACIENTES(
+	codigo INTEGER not null primary key,
+	nome varchar(45) not null ,
+	data_nascimentos date not null,
+	sexo varchar(2),
+	CPF varchar(14) not null unique,
+	telefone varchar(14) not null
+);
+
+create table medicos (
+	codigo INTEGER not null primary key,
+	nome varchar(80) not null,
+	CRM integer not null unique,
+	telefone varchar (14) not null
+);
+
+create table agendaConsulta(
+    codigo INTEGER not null primary key,
+    codigo_paciente INTEGER not null,
+    codigo_medicos INTEGER not null,
+    data_consulta date not null,
+    hora_consulta time not null,
+    observacao varchar(255),
+
+    constraint agendaConsulta_paciente foreign key (codigo_paciente) references pacientes(codigo),
+    constraint agendaConsulta_medicos foreign key (codigo_medicos) references medicos(codigo)
+);

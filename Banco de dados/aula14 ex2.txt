@@ -1,0 +1,70 @@
+-- CARGO
+INSERT INTO cargo VALUES (101, 'Analista', 3000.00);
+INSERT INTO cargo VALUES (102, 'Aprendiz', 200.00);
+INSERT INTO cargo VALUES (103, 'Programador', 4000.00);
+INSERT INTO cargo VALUES (104, 'Gerente', 6000.00);
+INSERT INTO cargo VALUES (105, 'DBA', 5000.00);
+
+-- DEPARTAMENTO
+INSERT INTO departamento VALUES (1001, 'RH', '(49)99999-0001');
+INSERT INTO departamento VALUES (1002, 'Desenvolvimento', '(49)99999-0002');
+INSERT INTO departamento VALUES (1003, 'Financeiro', '(49)99999-0003');
+INSERT INTO departamento VALUES (1004, 'Suporte', '(49)99999-0004');
+INSERT INTO departamento VALUES (1005, 'Infraestrutura', '(49)99999-0005');
+
+-- EMPREGADO (Zé Carioca é o id 5)
+INSERT INTO empregado VALUES (1, 104, 1001, NULL,    'Carlos Silva',   '2020-01-10', 6000.00, 500.00);
+INSERT INTO empregado VALUES (2, 101, 1002, 1,       'Ana Paula',      '2021-03-15', 3000.00, 200.00);
+INSERT INTO empregado VALUES (3, 103, 1002, 1,       'Bruno Souza',    '2022-06-01', 4000.00, 300.00);
+INSERT INTO empregado VALUES (4, 105, 1005, 1,       'Fernanda Lima',  '2023-08-20', 5000.00, 400.00);
+INSERT INTO empregado VALUES (5, 102, 1002, 1,       'Zé Carioca',     CURRENT_DATE, 200.00, NULL);
+
+UPDATE empregado
+SET id_cargo = 103
+WHERE emp_nome = 'Zé Carioca';
+
+UPDATE empregado
+SET emp_datadm = '2026-04-23';
+
+DELETE FROM empregado
+WHERE emp_nome = 'Zé Carioca';
+
+UPDATE empregado
+SET emp_salario = emp_salario * 1.4 + 200;
+
+UPDATE empregado
+SET emp_comissao = emp_salario / 2 + 100;
+
+UPDATE empregado
+SET emp_comissao = emp_salario * 0.456;
+
+SELECT
+    emp_nome,
+    emp_salario,
+    emp_comissao,
+    emp_salario + emp_comissao AS total
+FROM empregado;
+
+SELECT
+    emp_nome,
+    emp_salario,
+    emp_comissao,
+    emp_salario + emp_comissao AS total
+FROM empregado
+WHERE emp_comissao IS NOT NULL;
+
+SELECT
+    emp_nome,
+    emp_salario AS salario_mensal,
+    emp_salario / 220 AS salario_hora
+FROM empregado;
+
+SELECT
+    emp_nome,
+    emp_salario AS salario_mensal,
+    ROUND(emp_salario / 220, 4) AS salario_hora
+FROM empregado;
+
+SELECT emp_nome, emp_salario
+FROM empregado
+WHERE emp_salario BETWEEN 500 AND 1500;

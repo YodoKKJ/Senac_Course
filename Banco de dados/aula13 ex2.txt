@@ -1,0 +1,34 @@
+--atividade 2
+insert into pacientes (codigo, nome, data_nascimentos, sexo, cpf, telefone)
+values (2, 'Bruno', '06-06-2008', 'M', '09201900901', '49998415930')
+
+insert into medicos(codigo, nome, crm, telefone)
+values (1, 'sim sim querido', 4646546, '4998415930')
+
+insert into agendaconsulta (codigo, codigo_paciente, codigo_medicos, data_consulta, hora_consulta, observacao)
+values (1, 1, 1, '01-01-2026', '9:00', 'ola')
+
+
+alter table medicos 
+add column endereco varchar(80)
+
+
+select 
+*
+from agendaconsulta a 
+where a.codigo_paciente = 100
+
+select 
+* 
+from agendaconsulta a 
+where a.data_consulta = current_date
+
+
+SELECT
+    pacientes.nome AS Paciente,
+    medicos.nome AS Medico,
+    agendaconsulta.data_consulta as Data
+FROM agendaconsulta
+JOIN pacientes ON agendaconsulta.codigo_paciente  = pacientes.codigo
+JOIN medicos ON agendaconsulta.codigo_medicos  = medicos.codigo 
+ORDER BY agendaconsulta.data_consulta
