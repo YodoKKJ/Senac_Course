@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio5</title>
+</head>
+<body>
+
+    <button id="enviar" onclick="enviar()" > Enviar </button>
+    <div id="mensagem"></div>
+    
+    <script>    
+
+        function enviar(){
+            const mensagem = document.getElementById("mensagem")
+            let i = 1
+            while (i <= 5){
+                mensagem.innerText = `Subindo Andar ${i}`
+                console.log(i)
+                i++
+            }
+        }
+    </script>
+</body>
+
+</html>

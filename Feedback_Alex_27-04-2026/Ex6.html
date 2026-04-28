@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio6</title>
+</head>
+<body>
+    <input id="resposta" type="text" placeholder="Senha">
+    <button id="enviar" onclick="enviar()">Enviar</button>
+    <div id="mensagem"></div>
+    <script>
+
+        
+
+        function enviar(){
+            const resposta = document.getElementById("resposta").value
+            const mensagem = document.getElementById("mensagem")
+
+            let minusculo = resposta.toLowerCase()
+
+            if (minusculo.trim() === "ouro"){
+               mensagem.innerText = "Parabens tesouro liberado"
+            }
+
+            
+            else{
+                mensagem.innerText = "Tente novamente!"
+            }
+            
+                
+        }
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio12</title>
+</head>
+<body>
+    <input type="number" placeholder="Cliente 1 Valor" id="1">
+    <input type="number" placeholder="Cliente 2 Valor" id="2">
+    <input type="number" placeholder="Cliente 3 Valor" id="3"> 
+    <input type="number" placeholder="Cliente 4 Valor" id="4">
+    <input type="number" placeholder="Cliente 5 Valor" id="5">
+    <button onclick="enviar()">Enviar</button>
+    <div id="mensagem1"></div>
+    <div id="mensagem2"></div>
+    <div id="mensagem3"></div>
+    <div id="mensagem4"></div>
+    <div id="mensagem5"></div>
+    <div id="totalbrinde"></div>
+    
+    <script>
+
+        function enviar(){
+            const cliente1 = document.getElementById("1").value
+            const cliente2 = document.getElementById("2").value
+            const cliente3 = document.getElementById("3").value
+            const cliente4 = document.getElementById("4").value
+            const cliente5 = document.getElementById("5").value
+
+            const mensagem1 = document.getElementById("mensagem1")
+            const mensagem2 = document.getElementById("mensagem2")
+            const mensagem3 = document.getElementById("mensagem3")
+            const mensagem4 = document.getElementById("mensagem4")
+            const mensagem5 = document.getElementById("mensagem5")
+
+            const totalbrinde = document.getElementById("totalbrinde")
+
+            let totalBrindes = 0
+            // CLIENTE1
+            if (cliente1 > 100){
+                mensagem1.innerText = "Cliente 1 Ganhou Brinde"
+                totalBrindes++
+            }
+            else {
+                mensagem1.innerText = "Cliente 1 não ganhou brinde"
+            }
+
+            //CLIENTE2
+            if (cliente2 > 100){
+                mensagem2.innerText = "Cliente 2 Ganhou Brinde"
+                totalBrindes++
+            }
+            else {
+                mensagem2.innerText = "Cliente 2 não ganhou brinde"
+            }
+            
+            // CLIENTE3
+            if (cliente3 > 100){
+                mensagem3.innerText = "Cliente 3 Ganhou Brinde"
+                totalBrindes++
+            }
+            else {
+                mensagem3.innerText = "Cliente 3 não ganhou brinde"
+            }
+
+            // CLIENTE4
+            if (cliente4 > 100){
+                mensagem3.innerText = "Cliente 4 Ganhou Brinde"
+                totalBrindes++
+            }
+            else {
+                mensagem4.innerText = "Cliente 4 não ganhou brinde"
+            }
+
+             // CLIENTE5
+             if (cliente5 > 100){
+                mensagem5.innerText = "Cliente 5 Ganhou Brinde"
+                totalBrindes++
+            }
+            else {
+                mensagem5.innerText = "Cliente 5 não ganhou brinde"
+            }
+
+            totalbrinde.innerText = `Total de Brindes = ${totalBrindes}` 
+            
+
+
+        }
+
+    </script>
+</body>
+</html>

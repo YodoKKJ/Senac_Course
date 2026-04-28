@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio1</title>
+</head>
+<body>
+    <input id="idade" type="number" placeholder="Sua Idade: ">
+    <button id="enviar" onclick="enviar()">Enviar</button>
+    <div id="mensagem"></div>
+    <script>
+
+        
+
+        function enviar(){
+            const idade = document.getElementById("idade").value
+            const mensagem = document.getElementById("mensagem")
+
+            if (idade >= 15){
+               mensagem.innerText = "Parabens você pode jogar"
+            }
+            else if (idade < 18){
+                mensagem.innerText = "Você é menor de Idade não pode entrar"
+            }
+            
+                
+        }
+        
+
+    </script>
+</body>
+
+</html>

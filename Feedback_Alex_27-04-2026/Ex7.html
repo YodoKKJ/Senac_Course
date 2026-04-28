@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio7</title>
+</head>
+<body>
+    <input type="number" id="idade" placeholder="Idade: ">
+    <input type="checkbox" id="espada">
+    <button id="enviar" onclick="enviar()">Enviar</button>
+    <div id="mensagem"></div>
+
+    <script>
+
+        function enviar(){
+            const idade = document.getElementById("idade").value
+            const espada = document.getElementById("espada")
+            const mensagem = document.getElementById("mensagem")
+
+            if(idade >= 16 && espada){
+                mensagem.innerHTML = "Voce pode participar!" 
+            }
+            else{
+                mensagem.innerHTML = "Você não pode participar hehe"
+            }
+
+        }
+    </script>
+</body>
+</html>

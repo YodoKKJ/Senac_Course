@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio11</title>
+</head>
+
+<body>
+    <input type="text" id="senha" placeholder="Senha: ">
+    <button onclick="enviar()">Enviar</button>
+    <div id="mensagem"></div>
+
+    <script>
+        let i = 0;
+
+        function enviar() {
+
+            const senha = document.getElementById("senha").value
+            const mensagem = document.getElementById("mensagem")
+
+            let min = senha.toLowerCase()
+
+            if (min.trim() === "dragon" &&  i < 2) {
+                mensagem.innerText = `Parabéns você acerto a senha em  ${i} tentativas PORTAO ABERTO`
+            }
+            else if (min != "dragon" && i < 2 ) {
+                i++
+                mensagem.innerText = `Senha errada você tem ${4 - i} tentativas`
+            }
+
+            else {
+
+                mensagem.innerText = "Senha Errada e tentativas esgotadas ACESSO BLOQUEADO"
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

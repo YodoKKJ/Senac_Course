@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio10</title>
+</head>
+<body>
+    <input type="number" id="valor" placeholder="Valor da Sua compra">
+    <button onclick="enviar()">Enviar</button>
+    <div id="mensagem"></div>
+
+    <script>
+        
+        function enviar(){
+            const valor = document.getElementById("valor").value
+            const mensagem =  document.getElementById("mensagem")
+            let desconto
+
+            if (valor > 200) {
+                desconto = 0.2  
+            }
+
+            else if (valor > 100){
+                desconto = 0.1
+            }
+            else {
+                desconto = 0
+            }
+
+            let valorFinal = valor - (valor * desconto)
+
+            mensagem.innerText = `O valor original era de ${valor}, com um desconto de ${desconto * 100}%, o valor final da sua compra foi de ${valorFinal}` 
+        }
+    </script>
+</body>
+</html>

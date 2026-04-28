@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio8</title>
+</head>
+<body>
+    <input id="senha" type="text" placeholder="Senha">
+    <button id="enviar" onclick="enviar()">Enviar</button>
+    <div id="mensagem"></div>
+    <script>
+        
+        function enviar(){
+            const senha = document.getElementById("senha").value
+            const mensagem = document.getElementById("mensagem")
+
+            if (senha.trim() === ""){
+               mensagem.innerText = "Digite uma senha valida por favor"
+            }
+
+            else if(senha.trim() === "1234"){
+                mensagem.innerText = "Cofre aberto"
+            }
+
+            else{
+                mensagem.innerText = "Resposta Errada"
+            }    
+        }
+    </script>
+</body>
+</html>

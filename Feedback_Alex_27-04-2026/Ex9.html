@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercio9</title>
+</head>
+<body>
+    <input type="number" id="age" placeholder="Idade:">
+    <h3> Acompanhado:</h3>
+    <input type="checkbox" id="pessoa">
+    <br>
+    <br>
+    <button onclick="enviar()">enviar</button>
+    <br>
+    <h4 id="mensagem"></h4>
+    <script>
+
+        function enviar(){
+            const idade = document.getElementById("age").value
+            const pessoa = document.getElementById("pessoa")
+            const mensagem = document.getElementById("mensagem")
+
+            if(idade >= 18){
+                mensagem.innerText = "Passou Direto pela idade"
+            }
+
+            else if (idade >= 16 && pessoa){
+                mensagem.innerText = "Entrou pois está acompanhado Idade minimia nao atingida"
+             }
+            else {
+                mensagem.innerText = "Você nao pode entrar"
+            }
+            }
+    </script>
+</body>
+</html>
