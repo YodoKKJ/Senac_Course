@@ -1,0 +1,76 @@
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculadora</title>
+  </head>
+
+  <body>
+    <input id="num1" type="number" placeholder="Número 1" />
+    <input id="num2" type="number" placeholder="Número 2" />
+    <button onclick="calcular(somar)">+</button>
+    <button onclick="calcular(subtrair)">-</button>
+    <button onclick="calcular(multiplicar)">x</button>
+    <button onclick="calcular(dividir)">/</button>
+    <button onclick="testes()">Rodar Testes</button>
+
+    <div id="resultado"></div>
+  </body>
+
+  <script>
+
+     function calcular(funcao) {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const mensagem = document.getElementById("resultado")
+
+      mensagem.textContent = funcao(n1, n2);
+
+    }
+
+    function somar(n1, n2) {
+         return n1 + n2;
+         }
+
+    function subtrair(n1, n2) {
+         return n1 - n2; 
+        }
+
+    function multiplicar(n1, n2) {
+         return n1 * n2; 
+        }
+
+    function dividir(n1, n2) {
+        if (n2 === 0) {
+            return "Divisão Impossível devido a Divisão pelo número 0";
+         }
+
+        else{
+            return n1 / n2;
+        }
+    }
+
+    function testar(descricao, resultado, esperado) {
+      if (resultado === esperado) {
+        console.log(`${descricao}`);
+      } 
+      else {
+        console.log(`${descricao} esperado: ${esperado}, recebido: ${resultado}`);
+      }
+    }
+
+    function testes() {
+
+      testar("somar(2, 3) = 5", somar(2, 3), 5);
+
+      testar("subtrair(5, 3) = 2",  subtrair(5, 3), 2);
+
+      testar("multiplicar(3, 4) = 12",  multiplicar(3, 4),  12);
+
+      testar("dividir(10, 2) = 5",  dividir(10, 2),  5);
+
+      testar("dividir(10, 0) = mensagem",   dividir(10, 0), "dvisao impossivell devido a divisao pelo número 0");
+    }
+
+  </script>
+</html>

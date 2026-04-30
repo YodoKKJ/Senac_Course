@@ -1,0 +1,76 @@
+PROBLEMA DE MODELAGEM: Escola 
+
+ 
+
+A escola Pimpolho deseja informatizar o controle de eventos dos seus alunos. Para isso precisará desenvolver um modulo de inscrição do evento. O módulo deve ser simples e utilizável para eventos diários da escola, não havendo necessidade de se cadastrar uma programação para o evento. Para o aluno é importante registrar nome, CPF, RG, data nascimento, endereço, telefone. Para evento é importante registrar nome, data, hora inicio e hora fim. Um aluno pode participar de mais de um evento por dia, e um evento terá diversos alunos.  
+
+
+Relatórios que deverão ser gerados a partir desta modelagem: 
+
+* Lista de alunos por eventos em ordem alfabética de evento e nome do aluno; 
+
+ 
+
+Questão 1. (1,5) Elabore um modelo de dados que represente um modelo de dados para o problema descrito anteriormente. Represente as chaves primárias e estrangeiras, os principais atributos, as integridades referenciais e a obrigatoriedade/ opcionalidade dos relacionamentos. 
+
+CREATE TABLE alunos (
+    id          SERIAL PRIMARY KEY,
+    nome        VARCHAR(100)        NOT NULL,
+    CPF         VARCHAR(14) UNIQUE  NOT NULL,
+    RG          VARCHAR(20) UNIQUE  NOT NULL,
+    data_nascimento DATE            NOT NULL,
+    endereco    VARCHAR(255),
+    telefone    VARCHAR(20)
+);
+
+
+CREATE TABLE eventos (
+    id          SERIAL PRIMARY KEY,
+    nome        VARCHAR(100)    NOT NULL,
+    data        DATE            NOT NULL,
+    hora_inicio TIME            NOT NULL,
+    hora_fim    TIME            NOT NULL,
+ 
+    CONSTRAINT chk_horario CHECK (hora_fim > hora_inicio)
+);
+
+
+CREATE TABLE eventos_alunos (
+    aluno_id    INTEGER NOT NULL REFERENCES alunos(id)  ON DELETE CASCADE,
+    evento_id   INTEGER NOT NULL REFERENCES eventos(id) ON DELETE CASCADE,
+    PRIMARY KEY (aluno_id, evento_id)
+);
+
+ 
+
+Questão 2. (1,5) Escreva uma instrução SQL que crie as entidades da base de dados do modelo elaborado, obedecendo as regras de integridade apresentadas no modelo. 
+
+ 
+
+Questão 3. (1,0) Escreva uma instrução SQL que insira 3 registros em algumas das entidades elaboradas. Escreva essa sequência de forma a evitar que a integridade referencial do banco seja infringida.  
+
+ 
+
+Questão 4. (1,0) Escreva uma instrução SQL que altere um registro de uma entidade do modelo criado; 
+
+ 
+
+Questão 5. (1,0) Escreva uma instrução SQL que altere o nome de uma entidade criada a partir do modelo; 
+
+ 
+
+Questão 6. (1,0) Escreva as instruções SQL que elabore os relatórios descritos na apresentação do problema;  
+
+ 
+
+Questão 7. (1,0) Escreva uma instrução SQL que exclua todos os registros de uma entidade. 
+
+ 
+
+Questão 8. (1,0) Escreva uma instrução SQL que adicione o atributo Teste: Varchar (30) na segunda entidade criada do modelo; 
+
+ 
+
+Questão 9. (1,0) Escreva uma instrução SQL que exclua uma entidade de seu modelo. 
+
+ 
